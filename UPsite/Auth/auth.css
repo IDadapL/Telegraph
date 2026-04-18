@@ -1,0 +1,86 @@
+/* центр страницы */
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+}
+
+/* форма */
+#logForm {
+    width: 360px;
+    background: #1e293b;
+    padding: 35px;
+    border-radius: 18px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* заголовок */
+#authHeader {
+    text-align: center;
+    font-size: 28px;
+    justify-self: center;
+}
+
+/* поля */
+.formCont {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formCont input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: #0f172a;
+    color: white;
+}
+
+/* кнопка */
+#LogButton {
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #38bdf8;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#LogButton:hover {
+    background: #0ea5e9;
+    transform: translateY(-2px);
+}
+
+/* переключение режимов */
+.auth-switch {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.auth-switch a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    color: #0ea5e9;
+}
+
+/* чтобы футер не улетал */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}

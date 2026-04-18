@@ -1,0 +1,35 @@
+/* HERO */
+.services-hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.services-hero h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.services-hero p {
+    color: #94a3b8;
+}
+
+/* СЕТКА */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+}
+
+/* ФИКС ФУТЕРА */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}

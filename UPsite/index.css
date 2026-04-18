@@ -1,0 +1,293 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+/* ===== HEADER ===== */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1e293b;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* верх */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+.auth-link {
+    color: #38bdf8;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.auth-link:hover {
+    color: #0ea5e9;
+}
+
+/* логотип */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 40px;
+}
+
+/* поиск */
+.search input {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    background: #1e293b;
+    color: white;
+}
+
+/* низ */
+.header-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+/* навигация */
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #94a3b8;
+    font-size: 16px;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* underline анимация */
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: #38bdf8;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: #38bdf8;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* ===== FOOTER ===== */
+
+.footer {
+    margin-top: 80px;
+    background: #020617;
+    border-top: 1px solid #1e293b;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+}
+
+.footer h4 {
+    margin-bottom: 10px;
+}
+
+.footer p {
+    color: #94a3b8;
+}
+
+.footer a {
+    display: block;
+    color: #94a3b8;
+    text-decoration: none;
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+.footer a:hover {
+    color: #38bdf8;
+}
+
+.copyright {
+    text-align: center;
+    padding: 15px;
+    color: #64748b;
+    border-top: 1px solid #1e293b;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #94a3b8;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+button {
+    padding: 12px 25px;
+    border-radius: 12px;
+    border: none;
+    background: #38bdf8;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    background: #0ea5e9;
+}
+
+button.secondary {
+    background: transparent;
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+}
+
+/* БЛОКИ */
+.block {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.block h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+/* КАРТОЧКИ */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* карточка */
+.card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 18px;
+    transition: 0.3s;
+}
+.card img{
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.card a{
+    color: #38bdf8;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.card a:hover{
+    color: #0ea5e9;
+}
+
+/* текст чуть крупнее */
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* цена */
+.card span {
+    font-size: 20px;
+    font-weight: bold;
+}
+.cards.small {
+    column-count: 3;
+    column-gap: 20px;
+}
+
+.cards.small .card {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* ХОВЕР */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* ВЫДЕЛЕННЫЙ ТАРИФ */
+.highlight {
+    border: 2px solid #38bdf8;
+}
+
+/* МАЛЕНЬКИЕ КАРТОЧКИ */
+.small .card {
+    width: 250px;
+}

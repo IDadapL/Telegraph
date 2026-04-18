@@ -1,0 +1,73 @@
+.admin-wrapper {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.admin-title {
+    font-size: 42px;
+    margin-bottom: 40px;
+}
+
+/* сетка */
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* карточка */
+.admin-card {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: left;
+}
+
+/* заголовок */
+.admin-card h2 {
+    margin-bottom: 20px;
+    color: #38bdf8;
+    justify-self: center;
+}
+
+/* элемент списка */
+.admin-item {
+    background: #0f172a;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: 0.3s;
+    position: relative;
+}
+
+.item-deleter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    background: rgb(203, 78, 78);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 8px;
+    cursor: pointer;
+}
+
+.admin-item:hover {
+    transform: translateX(5px);
+    background: #111c33;
+}
+
+/* текст */
+.admin-item span {
+    font-weight: bold;
+}
+
+.admin-item small {
+    color: #94a3b8;
+}

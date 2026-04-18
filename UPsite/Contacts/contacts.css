@@ -1,0 +1,61 @@
+
+/* HERO */
+.contacts-hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.contacts-hero h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.contacts-hero p {
+    color: #94a3b8;
+}
+
+/* КОНТЕЙНЕР */
+.contacts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+}
+
+/* КАРТОЧКИ */
+.contact-card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 18px;
+    transition: 0.3s;
+}
+
+.contact-card h3 {
+    margin-bottom: 15px;
+}
+
+.contact-card p {
+    margin-bottom: 10px;
+    color: #94a3b8;
+}
+
+/* ссылки */
+.contact-card a {
+    display: block;
+    margin-bottom: 8px;
+    color: #38bdf8;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.contact-card a:hover {
+    color: #0ea5e9;
+}
+
+/* hover */
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
