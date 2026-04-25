@@ -1,3 +1,22 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 6px 12px;
+    background: #1e293b;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+}
+
+.pagination a.active {
+    background: #3b82f6;
+}
+
 .admin-wrapper {
     padding: 60px 20px;
     text-align: center;

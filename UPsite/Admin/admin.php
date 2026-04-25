@@ -34,10 +34,15 @@
         <?php
             $stmt = $pdo->query("SELECT DISTINCT users.username FROM orders JOIN users ON users.id = orders.user_id");
             $users = $stmt->fetchAll();
+            $total = $pdo->query("SELECT COUNT(*) FROM orders")->fetchColumn();
         ?>
 
         <?php
-            $stmt = $pdo->query("
+            $page = $_GET['page'] ?? 1;
+            $limit = 10;
+            $offset = ($page - 1) * $limit;
+
+            $stmt = $pdo->prepare("
             SELECT
             orders.id,
             users.username,
@@ -50,12 +55,18 @@
             FROM orders
             JOIN users ON users.id = orders.user_id
             JOIN services ON services.id = orders.service_id
+            ORDER BY orders.created_at DESC
+            LIMIT :limit OFFSET :offset
         ");
+            $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+            $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+            $stmt->execute();
             $orders = $stmt->fetchAll();
         ?>
 
     <section class="admin-card">
         <h2>Заказы</h2>
+        <h3>Всего заказов: <?= $total ?></h3>
         <?php foreach ($orders as $order): ?>
             <div class="admin-item">
                 <span>👤 <?= $order['username'] ?></span>
@@ -68,11 +79,6 @@
                     <small>✉️ Сообщение: <?= $order['message'] ?></small>
                     <small>📍 Адрес: <?= $order['address'] ?></small>
                 <?php endif; ?>
-                
-                <form method="post" class="apply-form">
-                    <input type="hidden" name="order_apply_id" value="<?= $order['id'] ?>">
-                    <button type="submit" class="order-applyer"></button>
-                </form>
 
                 <form method="post" action="deleteOrder.php" class="delete-form">
                     <input type="hidden" name="order_id" value="<?= $order['id'] ?>">
@@ -81,7 +87,13 @@
             </div>
         <?php endforeach; ?>
     </section>
-
+    </div>
+    <div class="pagination">
+        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+            <a href="?page=<?= $i ?>" class="<?= $i == $page ? 'active' : '' ?>">
+                <?= $i ?>
+            </a>
+        <?php endfor; ?>
     </div>
 
 </main>
