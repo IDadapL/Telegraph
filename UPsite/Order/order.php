@@ -2,6 +2,7 @@
     session_start();
     if(!isset($_SESSION['user_id'])){
         header("Location: http://UPsite/Auth/auth.php");
+        $_SESSION['toast'] = "Пожалуйста, авторизуйтесь";
         exit;
     }
 

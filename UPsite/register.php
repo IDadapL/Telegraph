@@ -27,8 +27,8 @@ if($mode == "login"){
 
 if($mode == "register"){
     if(!$email)$_SESSION['toast'] = "❌ Поле Email не может быть пустым";
-    elseif(!$username) $_SESSION['toast'] = "❌ Поле Username не может быть пустым";
-    elseif(!$password) $_SESSION['toast'] = "❌ Поле Password не может быть пустым";
+    elseif(!$username) $_SESSION['toast'] = "❌ Поле Логин не может быть пустым";
+    elseif(!$password) $_SESSION['toast'] = "❌ Поле Пароль не может быть пустым";
     elseif(strlen($username) < 6 || strlen($password) < 6) $_SESSION['toast'] = "❌ Логин и пароль должны быть больше 5 символов";
     else{
         SendData($pdo, $email, $username, $password);
