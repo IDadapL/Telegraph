@@ -23,4 +23,19 @@
 
     <p class="copyright">© 2026 Телеграф</p>
 
+    <?php if(isset($_SESSION['toast'])): ?>
+    <div id="toast" class="toast">
+        <?= $_SESSION['toast'] ?>
+    </div>
+    <?php unset($_SESSION['toast']); endif; ?>
+
+    <script>
+        const toast = document.getElementById('toast');
+
+        if (toast) {
+            setTimeout(() => toast.classList.add('show'), 100);
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+    </script>
+
 </footer>
