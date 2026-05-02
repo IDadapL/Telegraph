@@ -1,6 +1,6 @@
 <?php
     
-function Login($pd, $eml, $uname, $pass){
+function Login($pd, $uname, $pass){
 
     $stmt = $pd->prepare("SELECT * FROM users WHERE username = ?");
     $stmt->execute([$uname]);
@@ -16,7 +16,7 @@ function Login($pd, $eml, $uname, $pass){
         exit;
 
     } else {
-        echo "Неверный логин или пароль";
+        $_SESSION['toast'] = "❌ Неверный логин или пароль";
         header("Location: http://UPsite/Auth/auth.php");
         exit;
     }

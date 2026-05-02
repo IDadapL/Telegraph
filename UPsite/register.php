@@ -21,12 +21,16 @@ function SendData($pd, $eml, $uname, $pass){
 }
 
 if($mode == "login"){
-    Login($pdo, $email, $username, $password);
+    Login($pdo, $username, $password);
     exit;
 }
 
 if($mode == "register"){
-    if($email && $username && $password && strlen($username) > 5 && strlen($password) > 5){
+    if(!$email)$_SESSION['toast'] = "❌ Поле Email не может быть пустым";
+    elseif(!$username) $_SESSION['toast'] = "❌ Поле Username не может быть пустым";
+    elseif(!$password) $_SESSION['toast'] = "❌ Поле Password не может быть пустым";
+    elseif(strlen($username) < 6 || strlen($password) < 6) $_SESSION['toast'] = "❌ Логин и пароль должны быть больше 5 символов";
+    else{
         SendData($pdo, $email, $username, $password);
         exit;
     }
