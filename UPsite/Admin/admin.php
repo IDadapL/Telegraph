@@ -38,6 +38,7 @@
         ?>
 
         <?php
+
             $page = $_GET['page'] ?? 1;
             $limit = 10;
             $offset = ($page - 1) * $limit;
@@ -62,11 +63,15 @@
             $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
             $stmt->execute();
             $orders = $stmt->fetchAll();
+
+            $totalPages = ceil($total / $limit);
         ?>
 
     <section class="admin-card">
         <h2>Заказы</h2>
+
         <h3>Всего заказов: <?= $total ?></h3>
+        
         <?php foreach ($orders as $order): ?>
             <div class="admin-item">
                 <span>👤 <?= $order['username'] ?></span>
@@ -79,15 +84,29 @@
                     <small>✉️ Сообщение: <?= $order['message'] ?></small>
                     <small>📍 Адрес: <?= $order['address'] ?></small>
                 <?php endif; ?>
+                
+        <div class="item-actions">
 
-                <form method="post" action="deleteOrder.php" class="delete-form">
-                    <input type="hidden" name="order_id" value="<?= $order['id'] ?>">
-                    <button type="submit" class="item-deleter">✖</button>
-                </form>
+            <form method="post" action="updateStatus.php">
+                <input type="hidden" name="order_id" value="<?= $order['id'] ?>">
+
+                <select name="status" onchange="this.form.submit()">
+                    <option value="в обработке" <?= $order['status'] == 'в обработке' ? 'selected' : '' ?>>в обработке</option>
+                    <option value="выполнено" <?= $order['status'] == 'выполнено' ? 'selected' : '' ?>>выполнено</option>
+                </select>
+            </form>
+
+            <form method="post" action="deleteOrder.php">
+                <input type="hidden" name="order_id" value="<?= $order['id'] ?>">
+                <button type="submit" class="item-deleter">✖</button>
+            </form>
+
+        </div>
             </div>
         <?php endforeach; ?>
     </section>
     </div>
+
     <div class="pagination">
         <?php for ($i = 1; $i <= $totalPages; $i++): ?>
             <a href="?page=<?= $i ?>" class="<?= $i == $page ? 'active' : '' ?>">

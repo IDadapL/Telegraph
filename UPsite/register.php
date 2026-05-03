@@ -10,14 +10,24 @@ $password = $_POST["password"] ?? null;
 $mode = $_POST["mode"] ?? null;
 
 function SendData($pd, $eml, $uname, $pass){
-    $stm = $pd->prepare("INSERT INTO users(email, username, password) VALUES(?, ?, ?)");
-    $hash = password_hash($pass, PASSWORD_DEFAULT);
-    $stm->execute([$eml, $uname, $hash]);
-    $_SESSION['user_id'] = $pd->lastInsertId();
-    $_SESSION['username'] = $uname;
-    $_SESSION['role'] = 'user';
-    header("Location: http://UPsite/index.php");
-    exit;
+    try{
+        $stm = $pd->prepare("INSERT INTO users(email, username, password) VALUES(?, ?, ?)");
+        $hash = password_hash($pass, PASSWORD_DEFAULT);
+        $stm->execute([$eml, $uname, $hash]);
+        $_SESSION['user_id'] = $pd->lastInsertId();
+        $_SESSION['username'] = $uname;
+        $_SESSION['role'] = 'user';
+        header("Location: http://UPsite/index.php");
+        exit;
+    }
+    catch (PDOException $e) {
+
+        if ($e->getCode() == 23000) $_SESSION['toast'] = "❌ Пользователь с таким логином уже существует";
+        else $_SESSION['toast'] = "❌ Ошибка базы данных";
+        
+        header("Location: http://UPsite/Auth/auth.php");
+        exit;
+    }
 }
 
 if($mode == "login"){

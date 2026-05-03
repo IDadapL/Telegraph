@@ -32,7 +32,7 @@ if($type === 'service'){
 
     $stmt = $pdo->prepare("
         INSERT INTO orders (user_id, service_id, status, message, address, created_at)
-        VALUES (?, ?, 'оплачено', ?, ?, NOW())
+        VALUES (?, ?, 'в обработке', ?, ?, NOW())
     ");
 
     $stmt->execute([
@@ -53,7 +53,7 @@ else{
 
     $stmt = $pdo->prepare("
         INSERT INTO orders (user_id, service_id, status, created_at)
-        VALUES (?, ?, 'оплачено', NOW())
+        VALUES (?, ?, 'в обработке', NOW())
     ");
 
     $stmt->execute([
