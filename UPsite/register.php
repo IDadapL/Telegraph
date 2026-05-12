@@ -18,6 +18,7 @@ function SendData($pd, $eml, $uname, $pass){
         $_SESSION['username'] = $uname;
         $_SESSION['role'] = 'user';
         header("Location: http://UPsite/index.php");
+        $_SESSION['toast'] = "✅ Регистрация успешна";
         exit;
     }
     catch (PDOException $e) {

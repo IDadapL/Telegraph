@@ -11,6 +11,7 @@ function Login($pd, $uname, $pass){
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
+        $_SESSION['toast'] = "✅ Вы вошли как " . $user['username'];
 
         header("Location: http://UPsite/index.php");
         exit;
