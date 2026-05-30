@@ -80,6 +80,33 @@
 
         </div>
     </section>
+
+    <section class="how-it-works">
+    <h2>Как это работает</h2>
+
+    <div class="steps">
+
+        <div class="step">
+            <img src="https://images.unsplash.com/photo-1567473030492-533b30c5494c?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Отправка">
+            <h3>Вы отправляете сообщение</h3>
+            <p>Вы выбираете услугу и вводите данные для отправки.</p>
+        </div>
+
+        <div class="step">
+            <img src="https://images.unsplash.com/photo-1587355760421-b9de3226a046?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Обработка">
+            <h3>Система обрабатывает</h3>
+            <p>Мы проверяем данные и передаём сообщение в систему доставки.</p>
+        </div>
+
+        <div class="step">
+            <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Доставка">
+            <h3>Доставка получателю</h3>
+            <p>Сообщение доставляется адресату в кратчайшие сроки.</p>
+        </div>
+
+    </div>
+    </section>
+
     </main>
     <?php include 'footer.php';?>
     <script src="index.js"></script>

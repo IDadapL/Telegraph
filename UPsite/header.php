@@ -7,17 +7,6 @@
             <a href="http://UPsite/index.php"><img src="/telegraphLogo.png" alt=""></a>
             <span>Telegraph</span>
         </div>
-
-        <div class="header-right">
-            <?php if(isset($_SESSION['user_id'])):?>
-                <a href="http://UPsite/logout.php" class="auth-link">Выход</a>
-            <?php else: ?>
-        <a href="http://UPsite/Auth/auth.php" class="auth-link">Авторизация</a>
-            <?php endif;?>
-        <div class="search">
-            
-        </div>
-        </div>
     </div>
 
     <div class="header-bottom">
@@ -29,6 +18,14 @@
             <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'):?>
             <a href="http://UPsite/Admin/admin.php">Админ-панель</a>
             <?php endif;?>
+
+            <div class="header-right">
+            <?php if(isset($_SESSION['user_id'])):?>
+                <a href="http://UPsite/logout.php" class="auth-link">Выход</a>
+            <?php else: ?>
+            <a href="http://UPsite/Auth/auth.php" class="auth-link">Авторизация</a>
+            <?php endif;?>
+        </div>
         </nav>
     </div>
 

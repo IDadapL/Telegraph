@@ -108,3 +108,80 @@
 .admin-item small {
     color: #94a3b8;
 }
+
+.admin-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+/* базовая кнопка как на сайте */
+.tab-btn {
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: none;
+    background: #1e293b;
+    color: #e2e8f0;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+/* hover как на hero buttons */
+.tab-btn:hover {
+    transform: translateY(-3px);
+    background: #38bdf8;
+    color: black;
+}
+
+/* активная */
+.tab-btn.active {
+    background: #38bdf8;
+    color: black;
+    font-weight: bold;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin-form label {
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.admin-form input,
+.admin-form select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: white;
+    outline: none;
+}
+
+.admin-form input:focus,
+.admin-form select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 8px rgba(59,130,246,0.3);
+}
+
+.admin-form button {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: #3b82f6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.admin-form button:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
